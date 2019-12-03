@@ -1,14 +1,14 @@
-%%%×ÛºÏ2 ĞŞÕıÎÄ¼şÃû³Æ²¢ÑéÖ¤
+%%%ç»¼åˆ2 ä¿®æ­£æ–‡ä»¶åç§°å¹¶éªŒè¯
 clear;clc;
-folder_name_all = uigetdir('');%Ñ¡ÔñÎÄ¼ş¼Ğ
+folder_name_all = uigetdir('');%é€‰æ‹©æ–‡ä»¶å¤¹
 
 %%
 filepathlist = dir(folder_name_all);
 diary 'log1201.txt'
 disp(' ');
 time=clock;
-t1=strcat(num2str(time(1)),'Äê',num2str(time(2)),'ÔÂ',num2str(time(3)),'ÈÕ',num2str(time(4)),'£º',num2str(time(5)));
-disp(['±±¾©Ê±¼ä:',num2str(t1),'¿ªÊ¼¼ÇÂ¼']);
+t1=strcat(num2str(time(1)),'å¹´',num2str(time(2)),'æœˆ',num2str(time(3)),'æ—¥',num2str(time(4)),'ï¼š',num2str(time(5)));
+disp(['åŒ—äº¬æ—¶é—´:',num2str(t1),'å¼€å§‹è®°å½•']);
 
 for j=3:length(filepathlist)
     tic;
@@ -18,7 +18,7 @@ for j=3:length(filepathlist)
         b=subfilepathlist(i).name;
         F=strfind(subfilepathlist(i).name,' ');
     if isempty(F)
-        %continue; %continue»áÖ±½Ó½øÈëÏÂÒ»¸öÑ­»·£¬²»»áÖ´ĞĞÏÂÃæµÄÓï¾ä
+        %continue; %continueä¼šç›´æ¥è¿›å…¥ä¸‹ä¸€ä¸ªå¾ªç¯ï¼Œä¸ä¼šæ‰§è¡Œä¸‹é¢çš„è¯­å¥
     else
         d=strrep(subfilepathlist(i).name,' ','');
         linshi1=strcat(folder_name_all,'\',a,'\',b);
@@ -44,11 +44,11 @@ for j=3:length(filepathlist)
             status = system(cmd);
         end
         if status~=0
-        disp([num2str(a),'ĞŞ¸Ä²»³É¹¦!']);
+        disp([num2str(a),'ä¿®æ”¹ä¸æˆåŠŸ!']);
     end
     end
 end
-disp(['ĞŞ¸ÄÎÄ¼şÃûÍê³É£¡ÓÃÊ±£º',num2str(etime(clock,time)),'Ãë']);
+disp(['ä¿®æ”¹æ–‡ä»¶åå®Œæˆï¼ç”¨æ—¶ï¼š',num2str(etime(clock,time)),'ç§’']);
 
 %%
 filepathlist2 = dir(folder_name_all);
@@ -59,8 +59,8 @@ for j=3:length(filepathlist2)
     if strcmpi('Dicom',num2str(b))
         continue;
     else
-        disp([num2str(a),'Ã»ÓĞĞŞ¸Ä³É¹¦']);   
+        disp([num2str(a),'æ²¡æœ‰ä¿®æ”¹æˆåŠŸ']);   
     end
 end
-disp('ÑéÖ¤Íê³É');
+disp('éªŒè¯å®Œæˆ');
 diary off
