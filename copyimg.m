@@ -1,16 +1,16 @@
-%%%copyimg1112²âÊÔ³ÌĞò  
-%%%1203±à¼­£º¸´ÖÆÎÄ¼şµÄÖ÷³ÌĞò
+%%%copyimg1112æµ‹è¯•ç¨‹åº  
+%%%1203ç¼–è¾‘ï¼šå¤åˆ¶æ–‡ä»¶çš„ä¸»ç¨‹åº
 close all;clear;clc;
 
-xlsfilepathlist=uigetdir('E:\Study\Research\Data\Result\LIDC\dataframe');%Ñ¡ÔñÎÄ¼ş¼Ğ
+xlsfilepathlist=uigetdir('E:\Study\Research\Data\Result\LIDC\dataframe');%é€‰æ‹©æ–‡ä»¶å¤¹
 xlspathlist=dir(strcat(xlsfilepathlist,'\','*.xls'));
 
 imgfolder='E:\Study\Research\Data\LIDC-JPG';
 diary 'log1113.txt'
 disp(' ');
 time=clock;
-t1=strcat(num2str(time(1)),'Äê',num2str(time(2)),'ÔÂ',num2str(time(3)),'ÈÕ',num2str(time(4)),'£º',num2str(time(5)));
-disp(['±±¾©Ê±¼ä:',num2str(t1),'¿ªÊ¼¸´ÖÆÍ¼Æ¬']);
+t1=strcat(num2str(time(1)),'å¹´',num2str(time(2)),'æœˆ',num2str(time(3)),'æ—¥',num2str(time(4)),'ï¼š',num2str(time(5)));
+disp(['åŒ—äº¬æ—¶é—´:',num2str(t1),'å¼€å§‹å¤åˆ¶å›¾ç‰‡']);
 
 
 for j=91:length(xlspathlist)
@@ -25,7 +25,7 @@ for j=91:length(xlspathlist)
     mkdirpath=strcat('E:\Study\Research\Data\Result\LIDC\copyimg\',num2str(casename));
     
     if isfolder(num2str(mkdirpath))
-        disp([num2str(casename),'´æÔÚ'])
+        disp([num2str(casename),'å­˜åœ¨'])
         continue;
     end
     
@@ -33,7 +33,7 @@ for j=91:length(xlspathlist)
     
     oldpath=num2str(mkdirpath);
     img_path=strcat(imgfolder,'\',num2str(casename));
-    img_path_list = dir(strcat(imgfolder,'\',num2str(casename),'\','*.jpg'));% »ñÈ¡¸ÃÎÄ¼ş¼ĞÖĞËùÓĞ¸ñÊ½µÄÍ¼Ïñ
+    img_path_list = dir(strcat(imgfolder,'\',num2str(casename),'\','*.jpg'));% è·å–è¯¥æ–‡ä»¶å¤¹ä¸­æ‰€æœ‰æ ¼å¼çš„å›¾åƒ
     
     cd(num2str(img_path));
     for i=1:numel(a)
@@ -41,11 +41,11 @@ for j=91:length(xlspathlist)
         imagename=sprintf('%d.jpg',b);
         copyfile(imagename,oldpath);
     end
-    disp([num2str(xlsname),'¸´ÖÆÍ¼Æ¬Íê³É£¬ÓÃÊ±£º',num2str(toc)]);
+    disp([num2str(xlsname),'å¤åˆ¶å›¾ç‰‡å®Œæˆï¼Œç”¨æ—¶ï¼š',num2str(toc)]);
 end
 
 cd('E:\Study\Research\Repositories\YOLOv2test-master');
 
-disp('Íê³É¸´ÖÆ£¬½áÊøÊ±¼ä£º');
+disp('å®Œæˆå¤åˆ¶ï¼Œç»“æŸæ—¶é—´ï¼š');
 showtime;
 diary off
